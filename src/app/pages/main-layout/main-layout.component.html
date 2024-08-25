@@ -1,55 +1,45 @@
 <div class="flex h-screen">
-    <!-- Sidebar -->
-    <div
-      class="fixed inset-y-0 left-0 transform lg:transform-none lg:static z-50 flex flex-col bg-gray-800 text-white transition-all duration-200 ease-in-out"
-      [ngClass]="{
-        '-translate-x-full': !menuOpen,
-        'translate-x-0': menuOpen,
-        'w-64': menuOpen,
-        'w-16': !menuOpen
-      }"
+  <!-- Sidebar -->
+  <div
+    class="fixed inset-y-0 left-0 transform transition-all duration-200 ease-in-out bg-gray-800 text-white z-50 flex flex-col"
+    [ngClass]="{
+      '-translate-x-full': !menuOpen,
+      'translate-x-0': menuOpen,
+      'w-64': menuOpen,
+      'w-16': !menuOpen
+    }"
+  >
+    <!-- Toggle button at the top of the sidebar -->
+    <button *ngIf="menuOpen" class="text-white px-4 py-2 bg-gray-900" (click)="toggleMenu()">
+      {{ menuOpen ? 'Hide Menu' : 'Show Menu' }}
+    </button>
+
+    <!-- Menu content -->
+    <ul class="flex flex-col space-y-4 p-4" *ngIf="menuOpen">
+      <li class="hover:bg-gray-700 p-2 rounded">Home</li>
+      <li class="hover:bg-gray-700 p-2 rounded">About</li>
+      <li class="hover:bg-gray-700 p-2 rounded">Services</li>
+      <li class="hover:bg-gray-700 p-2 rounded">Contact</li>
+    </ul>
+  </div>
+
+  <!-- Main content area -->
+  <div
+    class="flex-1 transition-all duration-200 ease-in-out"
+    [ngClass]="{ 'ml-64': menuOpen, 'ml-16': !menuOpen }"
+  >
+    <!-- Toggle button for showing sidebar when hidden (both web and mobile view) -->
+    <button
+      class="fixed top-0 left-0 px-4 py-2 bg-gray-800 text-white z-50"
+      *ngIf="!menuOpen"
+      (click)="toggleMenu()"
     >
-      <!-- Toggle button at the top of the sidebar -->
-      <button  *ngIf="menuOpen" class="text-white px-4 py-2 bg-gray-900" (click)="toggleMenu()">
-        {{ menuOpen ? 'Hide Menu' : 'Show Menu' }}
-      </button>
-  
-      <!-- Menu content -->
-      <ul class="flex flex-col space-y-4 p-4" *ngIf="menuOpen">
-        <li class="hover:bg-gray-700 p-2 rounded">Home</li>
-        <li class="hover:bg-gray-700 p-2 rounded">About</li>
-        <li class="hover:bg-gray-700 p-2 rounded">Services</li>
-        <li class="hover:bg-gray-700 p-2 rounded">Contact</li>
-      </ul>
-    </div>
-  
-    <!-- Main content area -->
-    <div
-      class="flex-1 transition-all duration-200 ease-in-out"
-      [ngClass]="{ 'ml-64': menuOpen, 'ml-16': !menuOpen }"
-    >
-      <!-- Toggle button for showing sidebar when hidden (both web and mobile view) -->
-      <button
-        class="lg:hidden fixed top-0 left-0 px-4 py-2 bg-gray-800 text-white z-50"
-        *ngIf="!menuOpen"
-        (click)="toggleMenu()"
-      >
-        Show Menu
-      </button>
-  
-      <!-- Toggle button for desktop view, positioned in the main content -->
-      <button
-        class="lg:block hidden px-4 py-2 bg-gray-800 text-white mb-4"
-        *ngIf="!menuOpen"
-        (click)="toggleMenu()"
-      >
-        Show Menu
-      </button>
-  
-      <!-- Page content -->
-      <div class="p-4 bg-gray-300">
-        <router-outlet></router-outlet>
-      </div>
+      Show Menu
+    </button>
+
+    <!-- Page content -->
+    <div class="p-4 bg-gray-300">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  
+</div>
