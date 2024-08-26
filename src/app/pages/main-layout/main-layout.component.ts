@@ -1,5 +1,6 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-main-layout',
@@ -9,6 +10,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class MainLayoutComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav: MatSidenav;
+  sidenavMode: MatDrawerMode = 'side';
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -18,9 +20,12 @@ export class MainLayoutComponent implements OnInit {
 
   menuOpen = true;
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      this.sidenavMode = result.matches ? 'over' : 'side';
+    });
   }
 
   toggleMenu() {
