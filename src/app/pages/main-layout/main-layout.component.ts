@@ -4,6 +4,8 @@ import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { MenuItem } from './models/menu-item.model';
+import { ProfileComponent } from '../profile/profile.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main-layout',
@@ -70,7 +72,9 @@ export class MainLayoutComponent implements OnInit {
     }
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver,
+     private router: Router,
+     public dialog: MatDialog) {}
 
   ngOnInit(): void {
 
@@ -106,6 +110,14 @@ export class MainLayoutComponent implements OnInit {
           subItem.isSelected = this.isRouteSelected(subItem, currentRoute);
         });
       }
+    });
+  }
+
+  openDialog(): void {
+    this.dialog.open(ProfileComponent, {
+      width: '80vw',
+      data: { name: 'Your Name' },
+       panelClass: 'custom-dialog-container'
     });
   }
 

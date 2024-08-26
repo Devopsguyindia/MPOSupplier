@@ -7,16 +7,16 @@
     MPO Supplier
     <span style="flex: 1 1 auto;"></span>
     <div>
-      <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="accountMenu">
+      <button mat-icon-button matTooltip="Profile" [matMenuTriggerFor]="accountMenu">
         <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #accountMenu [overlapTrigger]="false" yPosition="below">
-        <button mat-menu-item routerLink="#">
-          <mat-icon>person</mat-icon><span>My Account</span>
+        <button mat-menu-item routerLink="#" (click)="openDialog()">
+          <mat-icon>person</mat-icon><span>Profile</span>
         </button>
-        <button mat-menu-item>
+        <!-- <button mat-menu-item>
           <mat-icon>help</mat-icon><span>Help</span>
-        </button>
+        </button> -->
         <mat-divider></mat-divider>
         <button mat-menu-item>
           <mat-icon>exit_to_app</mat-icon>Logout

@@ -4,12 +4,14 @@
 
 .content-container{
   background-color: #F1F3F4;
-  height: 100%;
+  height: calc(100% - 80px);
 }
 
 :host ::ng-deep .custom-toolbar {
-  background-color: #4285F4;
+  // background-color: #4285F4;
+  background-color: #3f51b5;
   color: white;
+  height: 60px;
 }
 
 :host ::ng-deep mat-sidenav mat-icon {
