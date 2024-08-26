@@ -73,6 +73,9 @@ export class MainLayoutComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
 
   ngOnInit(): void {
+
+    this.updateMenuSelection(this.router.url);
+
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
       this.sidenavMode = result.matches ? 'over' : 'side';
     });
