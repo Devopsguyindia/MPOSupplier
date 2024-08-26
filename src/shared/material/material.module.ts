@@ -11,6 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -27,7 +28,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTabsModule
 
   ],
   exports: [
@@ -40,7 +42,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule { }
