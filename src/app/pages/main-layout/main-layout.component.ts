@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { MenuItem } from './models/menu-item.model';
-
-
 
 @Component({
   selector: 'app-main-layout',
@@ -70,11 +70,17 @@ export class MainLayoutComponent implements OnInit {
     }
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
 
   ngOnInit(): void {
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
       this.sidenavMode = result.matches ? 'over' : 'side';
+    });
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.updateMenuSelection(event.urlAfterRedirects);
     });
   }
 
@@ -86,5 +92,21 @@ export class MainLayoutComponent implements OnInit {
     setTimeout(() => {
       this.sidenav.open();
     });
+  }
+
+  updateMenuSelection(currentRoute: string): void {
+    this.menuItems.forEach(item => {
+      item.isSelected = this.isRouteSelected(item, currentRoute);
+
+      if (item.hasSubmenu && item.submenu) {
+        item.submenu.forEach(subItem => {
+          subItem.isSelected = this.isRouteSelected(subItem, currentRoute);
+        });
+      }
+    });
+  }
+
+  private isRouteSelected(item: MenuItem, currentRoute: string): boolean {
+    return item.url === currentRoute;
   }
 }
