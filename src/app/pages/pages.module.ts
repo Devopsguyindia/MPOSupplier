@@ -12,7 +12,6 @@ import { MaterialModule } from 'src/shared/material/material.module';
   declarations: [
     PagesComponent,
     MainLayoutComponent,
-    DashboardComponent
   ],
   imports: [
     CommonModule,

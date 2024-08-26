@@ -8,8 +8,8 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent }, // Route for the first child component
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Default route if no child path is specified
+      { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }, // Lazy load DashboardModule
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   }
 ];
