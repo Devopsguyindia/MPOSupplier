@@ -1,18 +1,39 @@
 .full-screen-container{
-  background-color: red;
   height: 100%;
 }
 
 .content-container{
-  background-color: pink;
+  background-color: #F1F3F4;
   height: 100%;
 }
 
 :host ::ng-deep .custom-toolbar {
-  background-color: #4f46e5;
+  background-color: #4285F4;
   color: white;
 }
 
 :host ::ng-deep mat-sidenav mat-icon {
-  color: rgba(0, 0, 0, 0.54); /* Default grey color for Material icons */
+  color: rgba(0, 0, 0, 0.54);
 }
+
+:host ::ng-deep mat-sidenav  {
+  background-color: #F1F3F4 !important;
+}
+
+
+.custom-expansion-panel {
+  background-color: #F1F3F4;
+}
+
+.custom-expansion-panel .mat-expansion-panel-header {
+  background-color: #F1F3F4;
+}
+
+.custom-expansion-panel .mat-expansion-panel-content {
+  background-color: #FFFFFF;
+}
+
+.custom-expansion-panel .mat-expansion-panel-content mat-list-item {
+  color: #333;
+}
+
