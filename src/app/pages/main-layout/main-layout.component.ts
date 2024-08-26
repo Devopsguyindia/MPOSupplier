@@ -1,6 +1,9 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
+import { MenuItem } from './models/menu-item.model';
+
+
 
 @Component({
   selector: 'app-main-layout',
@@ -11,14 +14,61 @@ export class MainLayoutComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav: MatSidenav;
   sidenavMode: MatDrawerMode = 'side';
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.sidenav.open();
-    });
-  }
-
   menuOpen = true;
+
+  // Menu items list
+  menuItems: MenuItem[] = [
+    {
+      name: 'Dashboard',
+      url: '/dashboard',
+      icon: 'dashboard',
+      isSelected: false,
+      hasSubmenu: false
+    },
+    {
+      name: 'General',
+      url: '/general',
+      icon: 'check_box',
+      isSelected: false,
+      hasSubmenu: false
+    },
+    {
+      name: 'Profile',
+      url: '/profile',
+      icon: 'person',
+      isSelected: false,
+      hasSubmenu: false
+    },
+    {
+      name: 'Notification',
+      url: '/notification',
+      icon: 'notification_important',
+      isSelected: false,
+      hasSubmenu: false
+    },
+    {
+      name: 'Preference',
+      url: '',
+      icon: '',
+      isSelected: false,
+      hasSubmenu: true,
+      submenu: [
+        { name: 'Billing', url: '/billing', icon: 'attach_money', isSelected: false, hasSubmenu: false },
+        { name: 'Notification', url: '/notification', icon: 'notification_important', isSelected: false, hasSubmenu: false }
+      ]
+    },
+    {
+      name: 'Privacy',
+      url: '',
+      icon: '',
+      isSelected: false,
+      hasSubmenu: true,
+      submenu: [
+        { name: 'Partnership Request', url: '/partnership-request', icon: 'person_add', isSelected: false, hasSubmenu: false },
+        { name: 'Profile Visibility', url: '/profile-visibility', icon: 'visibility', isSelected: false, hasSubmenu: false }
+      ]
+    }
+  ];
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
@@ -32,4 +82,9 @@ export class MainLayoutComponent implements OnInit {
     this.menuOpen = !this.menuOpen;
   }
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.sidenav.open();
+    });
+  }
 }
