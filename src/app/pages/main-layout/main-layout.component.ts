@@ -39,7 +39,8 @@ export class MainLayoutComponent implements OnInit {
       url: '/profile',
       icon: 'person',
       isSelected: false,
-      hasSubmenu: false
+      hasSubmenu: false,
+      isDialog: true
     },
     {
       name: 'Notification',
@@ -77,7 +78,6 @@ export class MainLayoutComponent implements OnInit {
      public dialog: MatDialog) {}
 
   ngOnInit(): void {
-
     this.updateMenuSelection(this.router.url);
 
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
@@ -113,11 +113,19 @@ export class MainLayoutComponent implements OnInit {
     });
   }
 
+  onMenuItemClick(item: MenuItem): void {
+    if (item.isDialog) {
+      this.openDialog();
+    } else {
+      this.router.navigate([item.url]);
+    }
+  }
+
   openDialog(): void {
     this.dialog.open(ProfileComponent, {
       width: '80vw',
       data: { name: 'Your Name' },
-       panelClass: 'no-padding-dialog'
+      panelClass: 'no-padding-dialog'
     });
   }
 

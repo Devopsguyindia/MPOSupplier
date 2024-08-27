@@ -4,5 +4,6 @@ export interface MenuItem {
   icon: string;
   isSelected: boolean;
   hasSubmenu: boolean;
+  isDialog?: boolean;
   submenu?: MenuItem[];
 }
