@@ -28,9 +28,9 @@ export class MainLayoutComponent implements OnInit {
       hasSubmenu: false
     },
     {
-      name: 'General',
-      url: '/general',
-      icon: 'check_box',
+      name: 'Items',
+      url: '/item',
+      icon: 'casino',
       isSelected: false,
       hasSubmenu: false
     },
@@ -43,34 +43,19 @@ export class MainLayoutComponent implements OnInit {
       isDialog: true
     },
     {
-      name: 'Notification',
-      url: '/notification',
-      icon: 'notification_important',
+      name: 'Orders',
+      url: '/order',
+      icon: 'local_grocery_store',
       isSelected: false,
       hasSubmenu: false
     },
     {
-      name: 'Preference',
-      url: '',
-      icon: '',
+      name: 'Reports',
+      url: '/report',
+      icon: 'assignment',
       isSelected: false,
-      hasSubmenu: true,
-      submenu: [
-        { name: 'Billing', url: '/billing', icon: 'attach_money', isSelected: false, hasSubmenu: false },
-        { name: 'Notification', url: '/notification', icon: 'notification_important', isSelected: false, hasSubmenu: false }
-      ]
+      hasSubmenu: false
     },
-    {
-      name: 'Privacy',
-      url: '',
-      icon: '',
-      isSelected: false,
-      hasSubmenu: true,
-      submenu: [
-        { name: 'Partnership Request', url: '/partnership-request', icon: 'person_add', isSelected: false, hasSubmenu: false },
-        { name: 'Profile Visibility', url: '/profile-visibility', icon: 'visibility', isSelected: false, hasSubmenu: false }
-      ]
-    }
   ];
 
   constructor(private breakpointObserver: BreakpointObserver,

@@ -32,7 +32,7 @@
                 [routerLink]="item.isDialog ? null : item.url"
                 [class.selected]="item.isSelected"
                 (click)="onMenuItemClick(item)">
-                <mat-icon>{{ item.icon }}</mat-icon>{{ item.name }}
+                <mat-icon>{{ item.icon }}</mat-icon> <span class="ml-3 text-sm">{{ item.name }}</span>
               </mat-list-item>
             </ng-container>
 
