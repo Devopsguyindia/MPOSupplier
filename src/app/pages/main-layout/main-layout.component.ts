@@ -117,7 +117,7 @@ export class MainLayoutComponent implements OnInit {
     this.dialog.open(ProfileComponent, {
       width: '80vw',
       data: { name: 'Your Name' },
-       panelClass: 'custom-dialog-container'
+       panelClass: 'no-padding-dialog'
     });
   }
 

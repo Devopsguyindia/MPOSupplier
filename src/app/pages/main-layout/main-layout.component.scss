@@ -43,3 +43,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   font-weight: bold;
 }
+
+::ng-deep .no-padding-dialog .mat-dialog-container {
+  padding: 0 !important;
+}
