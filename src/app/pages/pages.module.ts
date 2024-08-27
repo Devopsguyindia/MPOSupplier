@@ -5,6 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MaterialModule } from 'src/shared/material/material.module';
 import { ProfileComponent } from './profile/profile.component';
+import { SampleDialogComponent } from './sample-dialog/sample-dialog.component';
 
 
 
@@ -13,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
     PagesComponent,
     MainLayoutComponent,
     ProfileComponent,
+    SampleDialogComponent,
   ],
   imports: [
     CommonModule,
