@@ -9,6 +9,7 @@ const routes: Routes = [
     component: PagesComponent,
     children: [
       { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }, // Lazy load DashboardModule
+      { path: 'item', loadChildren: () => import('./items/items.module').then(m => m.ItemsModule) },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   }
