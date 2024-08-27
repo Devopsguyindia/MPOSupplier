@@ -35,14 +35,6 @@ export class MainLayoutComponent implements OnInit {
       hasSubmenu: false
     },
     {
-      name: 'Profile',
-      url: '/profile',
-      icon: 'person',
-      isSelected: false,
-      hasSubmenu: false,
-      isDialog: true
-    },
-    {
       name: 'Orders',
       url: '/order',
       icon: 'local_grocery_store',
@@ -55,6 +47,14 @@ export class MainLayoutComponent implements OnInit {
       icon: 'assignment',
       isSelected: false,
       hasSubmenu: false
+    },
+    {
+      name: 'Profile',
+      url: '/profile',
+      icon: 'person',
+      isSelected: false,
+      hasSubmenu: false,
+      isDialog: true
     },
   ];
 
