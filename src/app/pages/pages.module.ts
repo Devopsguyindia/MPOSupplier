@@ -6,6 +6,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MaterialModule } from 'src/shared/material/material.module';
 import { ProfileComponent } from './profile/profile.component';
 import { SampleDialogComponent } from './sample-dialog/sample-dialog.component';
+import { GeneralComponent } from './profile/general/general.component';
 
 
 
@@ -15,6 +16,7 @@ import { SampleDialogComponent } from './sample-dialog/sample-dialog.component';
     MainLayoutComponent,
     ProfileComponent,
     SampleDialogComponent,
+    GeneralComponent,
   ],
   imports: [
     CommonModule,
