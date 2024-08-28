@@ -7,6 +7,7 @@ import { MaterialModule } from 'src/shared/material/material.module';
 import { ProfileComponent } from './profile/profile.component';
 import { SampleDialogComponent } from './sample-dialog/sample-dialog.component';
 import { GeneralComponent } from './profile/general/general.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { GeneralComponent } from './profile/general/general.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
   ]
 })
 export class PagesModule { }

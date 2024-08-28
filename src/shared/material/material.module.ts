@@ -12,6 +12,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 
 
@@ -29,7 +35,12 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatListModule,
     MatExpansionModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule
 
   ],
   exports: [
@@ -43,7 +54,12 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatListModule,
     MatExpansionModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }
