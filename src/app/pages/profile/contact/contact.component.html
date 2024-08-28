@@ -1,35 +1,87 @@
-<div class="flex flex-col md:flex-row items-stretch w-full h-full">
-  <!-- Phone Number Section -->
-  <div class="flex-1 flex flex-col p-4 box-border ">
-    <div class="font-bold mb-2 text-lg">Phone Number</div>
-    <div class="flex-1 flex items-center justify-center">
-      <!-- Fields for phone number will go here -->
+<form class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+  <!-- Phone Section -->
+  <mat-expansion-panel #phonePanel class="col-span-full">
+    <mat-expansion-panel-header>
+      <div class="flex justify-between w-full items-center">
+        <h2 class="text-2xl font-bold">Phone</h2>
+        <button mat-button (click)="openPanel(phonePanel)" class="ml-auto">
+          Add
+        </button>
+      </div>
+    </mat-expansion-panel-header>
+    <div>
+      <!-- Dummy input fields for Phone -->
+      <mat-form-field appearance="outline" class="w-full mt-4">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="Enter phone number">
+      </mat-form-field>
     </div>
-  </div>
+  </mat-expansion-panel>
 
-  <!-- Divider -->
-  <div class="hidden md:block w-px h-auto mx-4 bg-gray-300"></div>
+  <!-- Phone List -->
+  <ul class="col-span-full mt-2">
+    <li *ngFor="let phone of phoneList" class="border p-2 mb-2 rounded shadow">
+      {{ phone }}
+    </li>
+  </ul>
 
   <!-- Email Section -->
-  <div class="flex-1 flex flex-col p-4 box-border">
-    <div class="font-bold mb-2 text-lg">Email</div>
-    <div class="flex-1 flex items-center justify-center">
-      <!-- Fields for email will go here -->
-      <!-- <div style="height: 700px; background-color: orange;"></div> -->
-
+  <mat-expansion-panel #emailPanel class="col-span-full">
+    <mat-expansion-panel-header>
+      <div class="flex justify-between w-full items-center">
+        <h2 class="text-2xl font-bold">Email</h2>
+        <button mat-button (click)="openPanel(emailPanel)" class="ml-auto">
+          Add
+        </button>
+      </div>
+    </mat-expansion-panel-header>
+    <div>
+      <!-- Dummy input fields for Email -->
+      <mat-form-field appearance="outline" class="w-full mt-4">
+        <mat-label>Email Address</mat-label>
+        <input matInput placeholder="Enter email address">
+      </mat-form-field>
     </div>
-  </div>
+  </mat-expansion-panel>
 
-  <!-- Divider -->
-  <div class="hidden md:block w-px h-auto mx-4 bg-gray-300"></div>
+  <!-- Email List -->
+  <ul class="col-span-full mt-2">
+    <li *ngFor="let email of emailList" class="border p-2 mb-2 rounded shadow">
+      {{ email }}
+    </li>
+  </ul>
 
   <!-- Address Section -->
-  <div class="flex-1 flex flex-col p-4 box-border">
-    <div class="font-bold mb-2 text-lg">Address</div>
-    <div class="flex-1 flex items-center justify-center">
-      <!-- Fields for address will go here -->
-      <!-- <div style="height: 700px; background-color: red;"></div> -->
-
+  <mat-expansion-panel #addressPanel class="col-span-full">
+    <mat-expansion-panel-header>
+      <div class="flex justify-between w-full items-center">
+        <h2 class="text-2xl font-bold">Address</h2>
+        <button mat-button (click)="openPanel(addressPanel)" class="ml-auto">
+          Add
+        </button>
+      </div>
+    </mat-expansion-panel-header>
+    <div>
+      <!-- Dummy input fields for Address -->
+      <mat-form-field appearance="outline" class="w-full mt-4">
+        <mat-label>Street Address</mat-label>
+        <input matInput placeholder="Enter street address">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-full mt-4">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="Enter city">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-full mt-4">
+        <mat-label>Postal Code</mat-label>
+        <input matInput placeholder="Enter postal code">
+      </mat-form-field>
     </div>
-  </div>
-</div>
+  </mat-expansion-panel>
+
+  <!-- Address List -->
+  <ul class="col-span-full mt-2">
+    <li *ngFor="let address of addressList" class="border p-2 mb-2 rounded shadow">
+      {{ address }}
+    </li>
+  </ul>
+</form>
