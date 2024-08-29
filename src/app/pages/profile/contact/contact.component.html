@@ -9,12 +9,41 @@
         </button>
       </div>
     </mat-expansion-panel-header>
-    <div>
-      <!-- Dummy input fields for Phone -->
-      <mat-form-field appearance="outline" class="w-full mt-4">
-        <mat-label>Phone Number</mat-label>
-        <input matInput placeholder="Enter phone number">
-      </mat-form-field>
+    <div class="p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Phone Number Field -->
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Enter phone number">
+          </mat-form-field>
+        </div>
+
+        <!-- Title Field -->
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Title</mat-label>
+            <mat-select id="title" >
+              <mat-option value="mr">Mr</mat-option>
+              <mat-option value="mrs">Mrs</mat-option>
+              <mat-option value="ms">Ms</mat-option>
+              <mat-option value="dr">Dr</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Checkbox 1 -->
+        <div class="flex-1 flex items-center">
+          <mat-checkbox class="mr-2"></mat-checkbox>
+          <label for="checkbox1" class="text-sm">Checkbox 1</label>
+        </div>
+
+        <!-- Checkbox 2 -->
+        <div class="flex-1 flex items-center">
+          <mat-checkbox class="mr-2"></mat-checkbox>
+          <label for="checkbox2" class="text-sm">Checkbox 2</label>
+        </div>
+      </div>
     </div>
   </mat-expansion-panel>
 
@@ -35,12 +64,27 @@
         </button>
       </div>
     </mat-expansion-panel-header>
-    <div>
-      <!-- Dummy input fields for Email -->
-      <mat-form-field appearance="outline" class="w-full mt-4">
-        <mat-label>Email Address</mat-label>
-        <input matInput placeholder="Enter email address">
-      </mat-form-field>
+    <div class="p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Email Field -->
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter email address">
+          </mat-form-field>
+        </div>
+
+        <!-- Checkbox 1 -->
+        <div class="flex-1 flex items-center">
+          <mat-checkbox class="mr-2"></mat-checkbox>
+          <label for="checkbox1" class="text-sm">Checkbox 1</label>
+        </div>
+
+        <!-- Placeholder -->
+        <div class="flex-1"></div>
+
+        <div class="flex-1"></div>
+      </div>
     </div>
   </mat-expansion-panel>
 
@@ -61,20 +105,56 @@
         </button>
       </div>
     </mat-expansion-panel-header>
-    <div>
-      <!-- Dummy input fields for Address -->
-      <mat-form-field appearance="outline" class="w-full mt-4">
-        <mat-label>Street Address</mat-label>
-        <input matInput placeholder="Enter street address">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="w-full mt-4">
-        <mat-label>City</mat-label>
-        <input matInput placeholder="Enter city">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="w-full mt-4">
-        <mat-label>Postal Code</mat-label>
-        <input matInput placeholder="Enter postal code">
-      </mat-form-field>
+    <div class="p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Title Field -->
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Title</mat-label>
+            <mat-select id="title">
+              <mat-option value="mr">Mr</mat-option>
+              <mat-option value="mrs">Mrs</mat-option>
+              <mat-option value="ms">Ms</mat-option>
+              <mat-option value="dr">Dr</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Address Fields -->
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput placeholder="Enter address line 1">
+          </mat-form-field>
+        </div>
+
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput placeholder="Enter address line 2">
+          </mat-form-field>
+        </div>
+
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Enter city">
+          </mat-form-field>
+        </div>
+
+        <div class="flex-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Postal Code</mat-label>
+            <input matInput placeholder="Enter postal code">
+          </mat-form-field>
+        </div>
+
+        <!-- Checkbox 1 -->
+        <div class="flex-1 flex items-center">
+          <mat-checkbox class="mr-2"></mat-checkbox>
+          <label for="checkbox1" class="text-sm">Checkbox 1</label>
+        </div>
+      </div>
     </div>
   </mat-expansion-panel>
 
