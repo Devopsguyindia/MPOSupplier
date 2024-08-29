@@ -9,42 +9,50 @@
         </button>
       </div>
     </mat-expansion-panel-header>
-    <div class="p-4">
+    <form class="p-4" [formGroup]="phoneFormGroup">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <!-- Phone Number Field -->
-        <div class="flex-1">
+        <div class="flex-1" *ngIf="phoneFormGroup.get('usFormat').value">
           <mat-form-field appearance="outline" class="w-full">
             <mat-label>Phone Number</mat-label>
-            <input matInput placeholder="Enter phone number" mask="(000) 000-0000">
+            <input matInput formControlName="phone_number" placeholder="Enter phone number" mask="(000) 000-0000">
+          </mat-form-field>
+        </div>
+
+        <div class="flex-1" *ngIf="!phoneFormGroup.get('usFormat').value">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phone_number" placeholder="Enter phone number">
           </mat-form-field>
         </div>
 
         <!-- Title Field -->
         <div class="flex-1">
           <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Title</mat-label>
-            <mat-select id="title" >
-              <mat-option value="mr">Mr</mat-option>
-              <mat-option value="mrs">Mrs</mat-option>
-              <mat-option value="ms">Ms</mat-option>
-              <mat-option value="dr">Dr</mat-option>
+            <mat-label>Phone Number Type</mat-label>
+            <mat-select id="pType" formControlName="phone_type" >
+              <mat-option value="0">Home</mat-option>
+              <mat-option value="1">Office</mat-option>
+              <mat-option value="2">Mobile</mat-option>
+              <mat-option value="3">Fax</mat-option>
+              <mat-option value="4">Other</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
         <!-- Checkbox 1 -->
         <div class="flex-1 flex items-center">
-          <mat-checkbox class="mr-2"></mat-checkbox>
-          <label for="checkbox1" class="text-sm">Checkbox 1</label>
+          <mat-checkbox class="mr-2" formControlName="usFormat"></mat-checkbox>
+          <label for="usFormat" class="text-sm">US format</label>
         </div>
 
         <!-- Checkbox 2 -->
         <div class="flex-1 flex items-center">
-          <mat-checkbox class="mr-2"></mat-checkbox>
-          <label for="checkbox2" class="text-sm">Checkbox 2</label>
+          <mat-checkbox class="mr-2" formControlName="isprimary"></mat-checkbox>
+          <label for="isPrimary" class="text-sm" >Set as Primary</label>
         </div>
       </div>
-    </div>
+    </form>
   </mat-expansion-panel>
 
   <!-- Phone List -->
