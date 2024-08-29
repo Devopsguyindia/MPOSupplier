@@ -9,6 +9,7 @@ import { SampleDialogComponent } from './sample-dialog/sample-dialog.component';
 import { GeneralComponent } from './profile/general/general.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './profile/contact/contact.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -26,6 +27,7 @@ import { ContactComponent } from './profile/contact/contact.component';
     PagesRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ]
 })
 export class PagesModule { }

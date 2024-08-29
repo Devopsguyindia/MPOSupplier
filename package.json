@@ -25,6 +25,7 @@
     "@ngbmodule/material-carousel": "^0.7.2",
     "@ngx-translate/core": "^15.0.0",
     "bootstrap": "^5.2.2",
+    "ngx-mask": "^14.2.4",
     "ngx-perfect-scrollbar": "^10.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
