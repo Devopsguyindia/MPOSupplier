@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './profile/contact/contact.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { BioComponent } from './profile/bio/bio.component';
-// import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -31,7 +31,7 @@ import { BioComponent } from './profile/bio/bio.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    // CKEditorModule,
+    CKEditorModule,
     NgxMaskModule.forRoot(),
   ]
 })
