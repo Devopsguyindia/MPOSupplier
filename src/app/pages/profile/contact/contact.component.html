@@ -72,28 +72,26 @@
         </button>
       </div>
     </mat-expansion-panel-header>
-    <div class="p-4">
+    <form class="p-4" [formGroup]="emailFormGroup">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <!-- Email Field -->
+        <input type="hidden" formControlName="idcompany_contact_email_address">
+
         <div class="flex-1">
           <mat-form-field appearance="outline" class="w-full">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Enter email address">
+            <input matInput placeholder="Enter email address" formControlName="email_address">
           </mat-form-field>
         </div>
 
         <!-- Checkbox 1 -->
         <div class="flex-1 flex items-center">
-          <mat-checkbox class="mr-2"></mat-checkbox>
-          <label for="checkbox1" class="text-sm">Checkbox 1</label>
+          <mat-checkbox class="mr-2" formControlName="isprimary"></mat-checkbox>
+          <label for="checkbox1" class="text-sm">Set as Primary</label>
         </div>
 
-        <!-- Placeholder -->
-        <div class="flex-1"></div>
-
-        <div class="flex-1"></div>
       </div>
-    </div>
+    </form>
   </mat-expansion-panel>
 
   <!-- Email List -->

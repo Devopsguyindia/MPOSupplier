@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatExpansionPanel } from '@angular/material/expansion';
 
 @Component({
@@ -19,12 +19,14 @@ export class ContactComponent implements OnInit {
   addressList = ['Address 1', 'Address 2', 'Address 3', 'Address 4'];
 
   phoneFormGroup!: FormGroup;
+  emailFormGroup!: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
 
     this.buildPhoneForm()
+    this.buildEmailForm()
   }
 
   buildPhoneForm() {
@@ -35,6 +37,14 @@ export class ContactComponent implements OnInit {
       usFormat: new FormControl(true),
       isprimary: new FormControl(true),
 
+    });
+  }
+
+  buildEmailForm() {
+    this.emailFormGroup = new FormGroup({
+      idcompany_contact_email_address: new FormControl(),
+      email_address: new FormControl('', Validators.email),
+      isprimary: new FormControl(true),
     });
   }
 
