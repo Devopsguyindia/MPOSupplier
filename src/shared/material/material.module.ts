@@ -18,7 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -42,7 +42,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
 
   ],
   exports: [
@@ -62,7 +63,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
   ]
 })
 export class MaterialModule { }

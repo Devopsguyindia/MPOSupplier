@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@ckeditor/ckeditor5-angular": "^8.0.0",
+    "@haifahrul/ckeditor5-build-rich": "^18.0.2",
     "@ng-bootstrap/ng-bootstrap": "13.1.0",
     "@ngbmodule/material-carousel": "^0.7.2",
     "@ngx-translate/core": "^15.0.0",

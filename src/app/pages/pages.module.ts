@@ -7,9 +7,11 @@ import { MaterialModule } from 'src/shared/material/material.module';
 import { ProfileComponent } from './profile/profile.component';
 import { SampleDialogComponent } from './sample-dialog/sample-dialog.component';
 import { GeneralComponent } from './profile/general/general.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './profile/contact/contact.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { BioComponent } from './profile/bio/bio.component';
+// import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -21,12 +23,15 @@ import { NgxMaskModule } from 'ngx-mask';
     SampleDialogComponent,
     GeneralComponent,
     ContactComponent,
+    BioComponent,
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule,
+    // CKEditorModule,
     NgxMaskModule.forRoot(),
   ]
 })
