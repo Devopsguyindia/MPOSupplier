@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import ClassicEditor from '@haifahrul/ckeditor5-build-rich';
+import * as ClassicEditor from '@haifahrul/ckeditor5-build-rich';
+import Adapter from './ckeditorAdapter';
 
 @Component({
   selector: 'app-bio',
@@ -12,113 +13,149 @@ export class BioComponent implements OnInit {
   description: string = '';
   imagePreview: string | ArrayBuffer | null = null;
 
-  editor = ClassicEditor;
+  public Editor = ClassicEditor;
+
+  public ckconfig: any;
+  public data = '';
+
   customColorPalette = [
-    {
-      color: '#E64C4C',
-      label: 'Red',
-    },
-    {
-      color: '#E6994C',
-      label: 'Orange',
-    },
-    {
-      color: '#E6E64C',
-      label: 'yellow',
-    },
-
-    // ...
+    { color: '#E64C4C', label: 'Red' },
+    { color: '#E6994C', label: 'Orange' },
+    { color: '#E6E64C', label: 'Yellow' },
   ];
-  data: any = ``;
-  config = {
-    toolbar: [
-      'undo',
-      'redo',
-      '|',
-      'heading',
-      'fontFamily',
-      'fontSize',
-      '|',
-      'bold',
-      'italic',
-      'underline',
-      'fontColor',
-      'fontBackgroundColor',
-      'highlight',
-      '|',
-      'link',
-      'CKFinder',
-      'imageUpload',
-      'mediaEmbed',
-      '|',
-      'alignment',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'indent',
-      'outdent',
-      '|',
-      'insertTable',
-      'blockQuote',
-      'specialCharacters',
-    ],
-    table: {
-      contentToolbar: [
-        'tableColumn',
-        'tableRow',
-        'mergeTableCells',
-        'tableProperties',
-        'tableCellProperties',
-      ],
-      tableProperties: {
-        borderColors: this.customColorPalette,
-        backgroundColors: this.customColorPalette,
-        defaultProperties: {
-          borderStyle: 'dashed',
-          borderColor: 'hsl(90, 75%, 60%)',
-          borderWidth: '3px',
-          alignment: 'left',
-          width: '100px',
-          height: '100px',
-        },
-      },
-      tableCellProperties: {
-        borderColors: this.customColorPalette,
-        backgroundColors: this.customColorPalette,
-        defaultProperties: {
-          horizontalAlignment: 'center',
-          verticalAlignment: 'bottom',
-          padding: '10px',
-        },
-      },
-    },
 
-    fontColor: {
-      colors: [
-        {
-          color: '#E64C4C',
-          label: 'Red',
-        },
-        {
-          color: '#E6994C',
-          label: 'Orange',
-        },
-        {
-          color: '#E6E64C',
-          label: 'Yellow',
-        },
-      ],
-    },
-
-    language: 'id',
-    image: {
-      toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
-    },
-  };
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setupCkEditorConfig() {
+    this.ckconfig = {
+      toolbar: [
+        'undo',
+        'redo',
+        '|',
+        'heading',
+        'fontFamily',
+        'fontSize',
+        '|',
+        'bold',
+        'italic',
+        'underline',
+        'strikethrough',  // Added strikethrough for more text formatting options
+        'fontColor',
+        'fontBackgroundColor',
+        'highlight',
+        '|',
+        'link',
+        'CKFinder',
+        'imageUpload',
+        'mediaEmbed',
+        '|',
+        'alignment',
+        'bulletedList',
+        'numberedList',
+        '|',
+        'indent',
+        'outdent',
+        '|',
+        'insertTable',
+        'blockQuote',
+        'specialCharacters',
+        'removeFormat', // Added remove format option for clearing text styles
+        '|',
+        'sourceEditing'  // Added source editing option for HTML view
+      ],
+      table: {
+        contentToolbar: [
+          'tableColumn',
+          'tableRow',
+          'mergeTableCells',
+          'tableProperties',
+          'tableCellProperties',
+        ],
+        tableProperties: {
+          borderColors: this.customColorPalette,
+          backgroundColors: this.customColorPalette,
+          defaultProperties: {
+            borderStyle: 'dashed',
+            borderColor: 'hsl(90, 75%, 60%)',
+            borderWidth: '3px',
+            alignment: 'left',
+            width: '100px',
+            height: '100px',
+          },
+        },
+        tableCellProperties: {
+          borderColors: this.customColorPalette,
+          backgroundColors: this.customColorPalette,
+          defaultProperties: {
+            horizontalAlignment: 'center',
+            verticalAlignment: 'bottom',
+            padding: '10px',
+          },
+        },
+      },
+      fontColor: {
+        colors: this.customColorPalette,
+      },
+      fontSize: {
+        options: ['tiny', 'small', 'default', 'big', 'huge'],
+        supportAllValues: true
+      },
+      fontFamily: {
+        options: [
+          'default',
+          'Arial, Helvetica, sans-serif',
+          'Courier New, Courier, monospace',
+          'Georgia, serif',
+          'Lucida Sans Unicode, Lucida Grande, sans-serif',
+          'Tahoma, Geneva, sans-serif',
+          'Times New Roman, Times, serif',
+          'Trebuchet MS, Helvetica, sans-serif',
+          'Verdana, Geneva, sans-serif'
+        ]
+      },
+      language: 'en',
+      image: {
+        toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side']
+      },
+      extraPlugins: [this.customAdapterPlugin],
+      customColorPalette: [
+        {color: 'hsl(4, 90%, 58%)', label: 'Red'},
+        {color: 'hsl(340, 82%, 52%)', label: 'Pink'},
+        {color: 'hsl(291, 64%, 42%)', label: 'Purple'},
+        {color: 'hsl(262, 52%, 47%)', label: 'Deep Purple'},
+        {color: 'hsl(231, 48%, 48%)', label: 'Indigo'},
+        {color: 'hsl(207, 90%, 54%)', label: 'Blue'},
+        {color: 'hsl(193, 77%, 55%)', label: 'Light Blue'},
+        {color: 'hsl(187, 100%, 42%)', label: 'Cyan'},
+        {color: 'hsl(174, 100%, 29%)', label: 'Teal'},
+        {color: 'hsl(154, 60%, 44%)', label: 'Green'},
+        {color: 'hsl(116, 47%, 41%)', label: 'Light Green'},
+        {color: 'hsl(87, 57%, 47%)', label: 'Lime'},
+        {color: 'hsl(66, 70%, 43%)', label: 'Yellow'},
+        {color: 'hsl(36, 100%, 50%)', label: 'Amber'},
+        {color: 'hsl(14, 100%, 57%)', label: 'Orange'},
+        {color: 'hsl(6, 63%, 50%)', label: 'Deep Orange'},
+        {color: 'hsl(0, 0%, 59%)', label: 'Gray'},
+        {color: 'hsl(0, 0%, 43%)', label: 'Dark Gray'},
+        {color: 'hsl(0, 0%, 29%)', label: 'Very Dark Gray'}
+      ],
+    };
+  }
+
+  customAdapterPlugin(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+      return new Adapter(loader, editor.config);
+    };
+  }
+
+  onReady(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+      return new Adapter(loader, editor.config);
+    };
   }
 
   onFileChange(event: any) {

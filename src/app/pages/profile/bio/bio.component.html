@@ -3,7 +3,6 @@
   <div class="flex flex-col md:flex-row gap-4">
       <!-- Left Panel with Image Picker and Preview -->
       <div class="flex-1 bg-[#F1F3F4] text-white p-4 rounded-md">
-          <div class="mt-4">
               <mat-card class="bg-[#303f9f] p-4 rounded-md">
 
                 <div *ngIf="imagePreview" class="mt-4">
@@ -19,7 +18,6 @@
                   <!-- Image Preview -->
 
               </mat-card>
-          </div>
       </div>
       <!-- Right Panel with Description Box -->
       <div class="flex-1 bg-[#F1F3F4] text-white p-4 rounded-md">
@@ -33,6 +31,11 @@
   </div>
   <!-- Bottom Section -->
   <div class="bg-[#F1F3F4] text-white p-4 rounded-md mt-4">
-      <ckeditor [editor]="editor" [config]="config" [(ngModel)]="data"></ckeditor>
+      <ckeditor #myEditor formControlName="body" name="content" placeholder="Start typing here..." skin="moono-lisa" language="en"
+                [editor]="Editor"
+                [data]="data"
+                [(ngModel)]="data"
+                (ready)="onReady($event)">
+            </ckeditor>
   </div>
 </div>
