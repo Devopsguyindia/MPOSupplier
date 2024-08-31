@@ -43,7 +43,7 @@ export class BioComponent implements OnInit {
         'bold',
         'italic',
         'underline',
-        'strikethrough',  // Added strikethrough for more text formatting options
+        'strikethrough',
         'fontColor',
         'fontBackgroundColor',
         'highlight',
@@ -63,10 +63,37 @@ export class BioComponent implements OnInit {
         'insertTable',
         'blockQuote',
         'specialCharacters',
-        'removeFormat', // Added remove format option for clearing text styles
+        'removeFormat',
         '|',
-        'sourceEditing'  // Added source editing option for HTML view
+        'sourceEditing'
       ],
+      fontColor: {
+        colors: this.customColorPalette,
+        columns: 5,
+        documentColors: 10,
+        // defaultColor: '#000000', 
+      },
+      fontSize: {
+        options: ['tiny', 'small', 'default', 'big', 'huge'],
+        supportAllValues: true
+      },
+      fontFamily: {
+        options: [
+          'default',
+          'Arial, Helvetica, sans-serif',
+          'Courier New, Courier, monospace',
+          'Georgia, serif',
+          'Lucida Sans Unicode, Lucida Grande, sans-serif',
+          'Tahoma, Geneva, sans-serif',
+          'Times New Roman, Times, serif',
+          'Trebuchet MS, Helvetica, sans-serif',
+          'Verdana, Geneva, sans-serif'
+        ]
+      },
+      language: 'en',
+      image: {
+        toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side']
+      },
       table: {
         contentToolbar: [
           'tableColumn',
@@ -97,30 +124,6 @@ export class BioComponent implements OnInit {
           },
         },
       },
-      fontColor: {
-        colors: this.customColorPalette,
-      },
-      fontSize: {
-        options: ['tiny', 'small', 'default', 'big', 'huge'],
-        supportAllValues: true
-      },
-      fontFamily: {
-        options: [
-          'default',
-          'Arial, Helvetica, sans-serif',
-          'Courier New, Courier, monospace',
-          'Georgia, serif',
-          'Lucida Sans Unicode, Lucida Grande, sans-serif',
-          'Tahoma, Geneva, sans-serif',
-          'Times New Roman, Times, serif',
-          'Trebuchet MS, Helvetica, sans-serif',
-          'Verdana, Geneva, sans-serif'
-        ]
-      },
-      language: 'en',
-      image: {
-        toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side']
-      },
       extraPlugins: [this.customAdapterPlugin],
       customColorPalette: [
         {color: 'hsl(4, 90%, 58%)', label: 'Red'},
@@ -143,6 +146,7 @@ export class BioComponent implements OnInit {
         {color: 'hsl(0, 0%, 43%)', label: 'Dark Gray'},
         {color: 'hsl(0, 0%, 29%)', label: 'Very Dark Gray'}
       ],
+        // contentStyles: 'body { color: black; }'
     };
   }
 
