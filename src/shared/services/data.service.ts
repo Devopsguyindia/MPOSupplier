@@ -38,52 +38,52 @@ export class DataService {
     });
   }
 
-  // get<Rs>(
-  //   url: string,
-  //   queryParams?: { [key: string]: string | number | boolean },
-  // ): Promise<Rs> {
-  //   if (queryParams) {
-  //     if (!url.includes('?')) {
-  //       url += '?';
-  //     }
-  //     url += Object.entries(queryParams)
-  //       .map(([key, value]) => {
-  //         return `${key}=${encodeURIComponent(value)}`;
-  //       })
-  //       .join('&');
-  //   }
+  get<Rs>(
+    url: string,
+    queryParams?: { [key: string]: string | number | boolean },
+  ): Promise<Rs> {
+    if (queryParams) {
+      if (!url.includes('?')) {
+        url += '?';
+      }
+      url += Object.entries(queryParams)
+        .map(([key, value]) => {
+          return `${key}=${encodeURIComponent(value)}`;
+        })
+        .join('&');
+    }
 
-  //   return new Promise((resolve, reject) => {
-  //     lastValueFrom(this.http.get<Rs>('/rms/v1/' + url)).then(
-  //       (res: Rs) => {
-  //         resolve(res);
-  //       },
-  //       (err: HttpErrorResponse) => {
-  //         if (err.status === 401) {
-  //           // this.logout();
-  //         }
-  //         if (!err.error?.message) err.error.message = err.message;
-  //         reject(err);
-  //       },
-  //     );
-  //   });
-  // }
+    return new Promise((resolve, reject) => {
+      lastValueFrom(this.http.get<Rs>('/rms/v1/' + url)).then(
+        (res: Rs) => {
+          resolve(res);
+        },
+        (err: HttpErrorResponse) => {
+          if (err.status === 401) {
+            // this.logout();
+          }
+          if (!err.error?.message) err.error.message = err.message;
+          reject(err);
+        },
+      );
+    });
+  }
 
-  // patch<Rq, Rs>(url: string, payload: Rq): Promise<Rs> {
-  //   return new Promise((resolve, reject) => {
-  //     lastValueFrom(this.http.patch<Rs>('/rms/v1/' + url, payload)).then(
-  //       (res: Rs) => {
-  //         resolve(res);
-  //       },
-  //       (err: HttpErrorResponse) => {
-  //         if (err.status === 401) {
-  //           // this.logout();
-  //         }
-  //         reject(err);
-  //       },
-  //     );
-  //   });
-  // }
+  patch<Rq, Rs>(url: string, payload: Rq): Promise<Rs> {
+    return new Promise((resolve, reject) => {
+      lastValueFrom(this.http.patch<Rs>('/rms/v1/' + url, payload)).then(
+        (res: Rs) => {
+          resolve(res);
+        },
+        (err: HttpErrorResponse) => {
+          if (err.status === 401) {
+            // this.logout();
+          }
+          reject(err);
+        },
+      );
+    });
+  }
 
   // delete<Rq, Rs>(url: string): Promise<Rs> {
   //   return new Promise((resolve, reject) => {
