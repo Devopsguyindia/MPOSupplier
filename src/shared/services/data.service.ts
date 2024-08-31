@@ -85,19 +85,19 @@ export class DataService {
     });
   }
 
-  // delete<Rq, Rs>(url: string): Promise<Rs> {
-  //   return new Promise((resolve, reject) => {
-  //     lastValueFrom(this.http.delete<Rs>('/rms/v1/' + url)).then(
-  //       (res: Rs) => {
-  //         resolve(res);
-  //       },
-  //       (err: HttpErrorResponse) => {
-  //         if (err.status === 401) {
-  //           // this.logout();
-  //         }
-  //         reject(err);
-  //       },
-  //     );
-  //   });
-  // }
+  delete<Rq, Rs>(url: string): Promise<Rs> {
+    return new Promise((resolve, reject) => {
+      lastValueFrom(this.http.delete<Rs>('/rms/v1/' + url)).then(
+        (res: Rs) => {
+          resolve(res);
+        },
+        (err: HttpErrorResponse) => {
+          if (err.status === 401) {
+            // this.logout();
+          }
+          reject(err);
+        },
+      );
+    });
+  }
 }
