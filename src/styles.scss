@@ -18,6 +18,10 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
+ul.ngx-pagination{
+  padding-left: 0px !important;
+}
+
 
 .pointer-cursor {
     cursor: pointer;
