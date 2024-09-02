@@ -1,20 +1,31 @@
 <div class="p-4 bg-white rounded shadow-lg overflow-y-auto">
     <h2 class="text-xl font-semibold mb-4">Transaction Details</h2>
-    <div class="grid grid-cols-3 gap-4 mb-6">
-      <mat-form-field class="col-span-1">
-        <mat-label>Transaction Number</mat-label>
-        <input matInput [value]="transactionDetails.transactionNumber" disabled>
-      </mat-form-field>
-      <mat-form-field class="col-span-1">
-        <mat-label>Location</mat-label>
-        <input matInput [value]="transactionDetails.location" disabled>
-      </mat-form-field>
-      <mat-form-field class="col-span-1">
-        <mat-label>Sale Type</mat-label>
-        <input matInput [value]="transactionDetails.saleType" disabled>
-      </mat-form-field>
-      <!-- Add more fields here as needed -->
+
+      <div class="grid grid-cols-5 gap-4 mb-6">
+        <mat-form-field class="col-span-1">
+          <mat-label>Transaction Number</mat-label>
+          <input matInput [value]="transactionDetails.transactionNumber" disabled>
+        </mat-form-field>
+        <mat-form-field class="col-span-1">
+          <mat-label>Location</mat-label>
+          <input matInput [value]="transactionDetails.location" disabled>
+        </mat-form-field>
+        <mat-form-field class="col-span-1">
+          <mat-label>Sale Type</mat-label>
+          <input matInput [value]="transactionDetails.saleType" disabled>
+        </mat-form-field>
+        <mat-form-field class="col-span-1">
+          <mat-label>Tax Type</mat-label>
+          <input matInput [value]="transactionDetails.taxType" disabled>
+        </mat-form-field>
+        <!-- New Date Issued Field -->
+        <mat-form-field class="col-span-1">
+          <mat-label>Date Issued</mat-label>
+          <input matInput [value]="transactionDetails.dateIssued" disabled>
+        </mat-form-field>
+      <!-- Other existing content -->
     </div>
+    
   
     <div class="mb-1">
       <h3 class="text-lg font-medium mb-2">Invoice To</h3>
