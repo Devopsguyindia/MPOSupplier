@@ -13,7 +13,12 @@ export class DetailScreenComponent implements OnInit {
   options: any = { checkboxes: true, pagination: false }; // Disable pagination
   data: any[] = [];
   columns: any[] = [];
-  
+
+  // Options for payments ngx-datatable
+  paymentsOptions: any = { checkboxes: true, pagination: false }; // Disable pagination for payments table
+  paymentsData: any[] = [];
+  paymentsColumns: any[] = [];
+
   // Dummy data for transaction details
   transactionDetails = {
     transactionNumber: '140473',
@@ -64,9 +69,31 @@ export class DetailScreenComponent implements OnInit {
       { id: 1, name: 'John Doe', phone: '123-456-7890', company: 'Company A', date: '2024-09-02', zip: '10001' },
       { id: 2, name: 'Jane Smith', phone: '098-765-4321', company: 'Company B', date: '2024-09-03', zip: '10002' }
     ];
+
+    // Initialize payments table data
+    this.initializePaymentsData();
   }
 
   onCheckboxClick(selectCheckBoxArr: any[]) {
     alert(JSON.stringify(selectCheckBoxArr));
+  }
+
+  // Method to initialize payments data
+  initializePaymentsData(): void {
+    this.paymentsColumns = [
+      { key: 'dateDue', title: 'Date Due', width: 100, sorting: true },
+      { key: 'amountDue', title: 'Amount Due', width: 120, sorting: true },
+      { key: 'payType', title: 'Pay Type', width: 100, sorting: false },
+      { key: 'amountPaid', title: 'Amount Paid', width: 120, sorting: true },
+      { key: 'datePaid', title: 'Date Paid', width: 100, sorting: true },
+      { key: 'cardName', title: 'Card Name', width: 100, sorting: false },
+      { key: 'authCode', title: 'Auth Code', width: 100, sorting: false }
+    ];
+
+    // Dummy data for payments table
+    this.paymentsData = [
+      { dateDue: '2024-09-05', amountDue: 500.00, payType: 'Credit Card', amountPaid: 500.00, datePaid: '2024-09-06', cardName: 'Visa', authCode: '123456' },
+      { dateDue: '2024-09-10', amountDue: 610.00, payType: 'Cash', amountPaid: 610.00, datePaid: '2024-09-10', cardName: '', authCode: '' }
+    ];
   }
 }

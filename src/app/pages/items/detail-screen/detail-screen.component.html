@@ -1,4 +1,4 @@
-<div class="p-4 bg-white rounded shadow-lg">
+<div class="p-4 bg-white rounded shadow-lg overflow-y-auto">
     <h2 class="text-xl font-semibold mb-4">Transaction Details</h2>
     <div class="grid grid-cols-3 gap-4 mb-6">
       <mat-form-field class="col-span-1">
@@ -16,19 +16,19 @@
       <!-- Add more fields here as needed -->
     </div>
   
-    <div class="mb-6">
+    <div class="mb-1">
       <h3 class="text-lg font-medium mb-2">Invoice To</h3>
-      <div class="bg-gray-100 p-4 rounded">
+      <div class="bg-gray-100 p-2 rounded">
         <p>{{transactionDetails.invoiceTo.name}}</p>
       </div>
     </div>
   
     <!-- Responsive layout for Ship To and Bill To -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-1">
       <!-- Ship To -->
       <div>
         <h3 class="text-lg font-medium mb-2">Ship To</h3>
-        <div class="bg-gray-100 p-4 rounded">
+        <div class="bg-gray-100 p-2 rounded">
           <p>{{transactionDetails.shipTo.name}}</p>
           <p>{{transactionDetails.shipTo.address}}</p>
           <p>{{transactionDetails.shipTo.email}}</p>
@@ -39,7 +39,7 @@
       <!-- Bill To -->
       <div>
         <h3 class="text-lg font-medium mb-2">Bill To</h3>
-        <div class="bg-gray-100 p-4 rounded">
+        <div class="bg-gray-100 p-2 rounded">
           <p>{{transactionDetails.billTo.name}}</p>
           <p>{{transactionDetails.billTo.address}}</p>
           <p>{{transactionDetails.billTo.email}}</p>
@@ -47,6 +47,12 @@
         </div>
       </div>
     </div>
+
+    <div class="mt-4 flex justify-between">
+        <div>
+          <h4 class="text-sm font-semibold">Balance: <span class="text-red-600">{{transactionDetails.balance | currency}}</span></h4>
+        </div>
+      </div>
   
     <!-- Items Data Table -->
     <div class="w-full">
@@ -66,7 +72,7 @@
     </div>
   
     <!-- Payments Data Table -->
-    <!-- <h3 class="text-lg font-medium mt-6 mb-2">Payments</h3>
+    <h3 class="text-lg font-medium mt-6 mb-2">Payments</h3>
     <ngx-datatable
       class="min-w-full divide-y divide-gray-200"
       tableClass="table table-striped table-bordered table-hover min-w-full"
@@ -75,13 +81,9 @@
       [options]="paymentsOptions"
       [columns]="paymentsColumns"
     >
-    </ngx-datatable> -->
+    </ngx-datatable>
   
     <!-- Summary and Actions -->
-    <div class="mt-4 flex justify-between">
-      <div>
-        <h4 class="text-sm font-semibold">Balance: <span class="text-red-600">{{transactionDetails.balance | currency}}</span></h4>
-      </div>
-    </div>
-  </div>
+    
+</div>
   
